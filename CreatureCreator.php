@@ -5,7 +5,7 @@ include 'config.php';
 <!DOCTYPE html>
 <html>
 <head>
-    <TITLE>Creature Creator </TITLE>
+    <title>Creature Creator</title>
 </head>
 <body>
 <?php
@@ -19,10 +19,7 @@ try{
 <form method="post" action="CreateNewCreature.php">
     <fieldset>
         <legend>Creature Creator</legend>
-        <H1>
-            TIER
-        </H1>
-        <br />
+        <h1>TIER</h1>
         <select name="Tier">
             <?php
             $tiers = ["0", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"];
@@ -31,12 +28,7 @@ try{
             }
             ?>
         </select>
-        <br />
-        <br />
-        <H1>
-            STAT ATTRIBUTES
-        </H1>
-        <br />
+        <h1>STAT ATTRIBUTES</h1>
         <?php
             $query = "
                 SELECT
@@ -66,9 +58,7 @@ try{
         ?>
         <br />
 
-        <H1>
-            SKILL ATTRIBUTES
-        </H1>
+        <h1>SKILL ATTRIBUTES</h1>
         <ul>
 
 
