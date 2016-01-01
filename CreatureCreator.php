@@ -37,6 +37,7 @@ try{
                 8 => "VIII",
                 9 => "IX",
                 10 => "X",
+				11 => "XI",
                 100 => "Legendary"];
             foreach ($tiers as $tier => $value) {
                 print '<option value="' . $tier . '">' . $value . '</option>';
