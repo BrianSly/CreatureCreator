@@ -38,8 +38,8 @@ try{
                 9 => "IX",
                 10 => "X",
                 100 => "Legendary"];
-            foreach ($tiers as $tier => $value) {
-                print '<option value="' . $tier . '">' . $value . '</option>';
+            foreach ($tiers as $tierValue => $name) {
+                print '<option value="' . $tierValue . '">' . $name . '</option>';
             }
             ?>
         </select>
