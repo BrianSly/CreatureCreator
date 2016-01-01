@@ -22,9 +22,21 @@ try{
         <h1>TIER</h1>
         <select name="Tier">
             <?php
-            $tiers = ["0", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"];
-            foreach ($tiers as $tier) {
-                print '<option value="' . $tier . '">' . $tier . '</option>';
+            $tiers = [
+                0 => "0",
+                1 => "I",
+                2 => "II",
+                3 => "III",
+                4 => "IV",
+                5 => "V",
+                6 => "VI",
+                7 => "VII",
+                8 => "VIII",
+                9 => "IX",
+                10 => "X",
+                100 => "Legendary"];
+            foreach ($tiers as $tier => $value) {
+                print '<option value="' . $tier . '">' . $value . '</option>';
             }
             ?>
         </select>
@@ -42,19 +54,19 @@ try{
                 ORDER BY name ASC, rank ASC
             ";
             $statement = $database->query($query);
-        $results = $statement->fetchAll();
-        $currentStatCategory = '';
-        foreach ($results as $stat) {
-            if ($currentStatCategory != $stat['name']) {
-                if ($currentStatCategory != '') {
-                    print '</select><br />';
+            $results = $statement->fetchAll();
+            $currentStatCategory = '';
+            foreach ($results as $stat) {
+                if ($currentStatCategory != $stat['name']) {
+                    if ($currentStatCategory != '') {
+                        print '</select><br />';
+                    }
+                    print $stat['name'] . '<br /><select name="' . $stat['name'] . '">';
+                    $currentStatCategory = $stat['name'];
                 }
-                print $stat['name'] . '<br /><select name="' . $stat['name'] . '">';
-                $currentStatCategory = $stat['name'];
+                print '<option value = "' . $stat['rank'] . '">' . $stat['rank_name'] . '</option>';
             }
-            print '<option value = "' . $stat['rank'] . '">' . $stat['rank_name'] . '</option>';
-        }
-        print '</select><br />';
+            print '</select><br />';
         ?>
         <br />
 
