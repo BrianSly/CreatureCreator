@@ -72,8 +72,6 @@ try{
             }
             print '</select><br />';
         ?>
-<!--        <br />-->
-<!---->
 <!--        <h1>SKILL ATTRIBUTES</h1>-->
 <!--        <ul>-->
 <!--            <li>Creature Class</li>-->
@@ -85,26 +83,23 @@ try{
 <!--            <input type="radio" name="Class" value="Insect">Insect-->
 <!--            <input type="radio" name="Class" value="Other">Other-->
 <!--            <br />-->
-<!--            <li>Creature Body</li>-->
-<!--            <input type="radio" name="Order" value="Felidae">Felidae-->
-<!--            <input type="radio" name="Order" value="Canidae">Canidae-->
-<!--            <input type="radio" name="Order" value="Vulpe">Vulpe-->
-<!--            <input type="radio" name="Order" value="Cervidae">Cervidae-->
-<!--            <input type="radio" name="Order" value="Mustelidae">Mustelidae-->
-<!--            <input type="radio" name="Order" value="Equine">Equine-->
-<!--            <input type="radio" name="Order" value="Serpentes">Serpentes-->
-<!--            <input type="radio" name="Order" value="Ursidae">Ursidae-->
-<!--            <input type="radio" name="Order" value="Lizards">Lizards-->
-<!--            <br />-->
-<!--            <input type="radio" name="Order" value="Marsupial">Marsupial-->
-<!--            <input type="radio" name="Order" value="Primates">Primates-->
-<!--            <input type="radio" name="Order" value="Rodents">Rodents-->
-<!--            <input type="radio" name="Order" value="Avian">Avian-->
-<!--            <input type="radio" name="Order" value="Flightless Avian">Flightless Avian-->
-<!--            <input type="radio" name="Order" value="Amphibians">Amphibians-->
-<!--            <input type="radio" name="Order" value="Ungulate">Ungulate-->
-<!--            <input type="radio" name="Order" value="Other">Other-->
-<!--            <br />-->
+
+            <h1>Creature Body</h1>
+            <?php
+            $query = "
+                    SELECT
+                      name, id
+                    FROM creature_type
+                    ORDER BY name ASC
+                ";
+            unset($statement);
+            $statement = $database->query($query);
+            $results = $statement->fetchAll();
+            foreach($results as $order) {
+                print '<input type="radio" name="Order" value="' . $order['name'] . '">' . $order['name'] . '</input>';
+            }
+            print '</select><br />';
+            ?>
 <!--            <li>Appendages</li>-->
 <!--            <input type="radio" name="Appendages" value="Horn">Horn-->
 <!--            <input type="radio" name="Appendages" value="Horns">Horns-->
@@ -283,7 +278,7 @@ try{
 <!--            <input type="radio" name="Disposition" value="Aggressive">Aggressive-->
 <!--            <br />-->
 <!--            <br />-->
-<!---->
+
 <!--        </ul>-->
 <!--	    	<textarea cols="120" rows="25">-->
 <!--	    	-->
