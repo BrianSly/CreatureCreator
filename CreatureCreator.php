@@ -19,6 +19,9 @@ try{
 <form method="post" action="CreateNewCreature.php">
     <fieldset>
         <legend>Creature Creator</legend>
+        <h1>Creature Name</h1>
+        <input type="text" name="Name">
+
         <h1>TIER</h1>
         <select name="Tier">
             <?php
