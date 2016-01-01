@@ -49,6 +49,7 @@ try{
                 SELECT
                     A.name
                     ,A.short_name
+                    ,B.id
                     ,B.rank
                     ,B.rank_name
                 FROM creature_stats AS A
@@ -67,7 +68,7 @@ try{
                     print $stat['name'] . '<br /><select name="' . $stat['name'] . '">';
                     $currentStatCategory = $stat['name'];
                 }
-                print '<option value = "' . $stat['rank'] . '">' . $stat['rank_name'] . '</option>';
+                print '<option value = "' . $stat['id'] . '">' . $stat['rank_name'] . ' - ' . $stat['rank'] . '</option>';
             }
             print '</select><br />';
         ?>
