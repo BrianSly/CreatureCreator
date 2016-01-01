@@ -16,7 +16,7 @@ try{
 }
 ?>
 
-<form method="post" action="HTMLForms.php">
+<form method="post" action="CreateNewCreature.php">
     <fieldset>
         <legend>Creature Creator</legend>
         <H1>
