@@ -96,7 +96,7 @@ try{
             $statement = $database->query($query);
             $results = $statement->fetchAll();
             foreach($results as $order) {
-                print '<input type="radio" name="Order" value="' . $order['name'] . '">' . $order['name'] . '</input>';
+                print '<input type="radio" name="Order" value="' . $order['id'] . '">' . $order['name'] . '</input>';
             }
             print '</select><br />';
             ?>
