@@ -96,10 +96,11 @@ try{
             unset($stmt);
             $stmt = $database->query($query);
             $results = $stmt->fetchAll();
+            print "<ul>";
             foreach($results as $attribute) {
-                print '<input type="radio" name="Order" value="' . $attribute['id'] . '">' . $attribute['name'] . '</input>';
+                print '<li><input type="radio" name="Order" value="' . $attribute['id'] . '">' . $attribute['name'] . '</input></li>';
             }
-            print '</select><br />';
+            print '</ul><br />';
             ?>
         
             <h2>Creature Attributes</h2>
