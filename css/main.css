@@ -56,11 +56,15 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+main {
+    margin: 20px auto;
+    max-width: 80%;
+}
 
-
-
-
-
+textarea {
+    width: 80%;
+    height: 200px;
+}
 
 
 
