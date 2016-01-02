@@ -11,6 +11,7 @@
     <script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
+<main>
     <h1>Attribute Type Edit</h1>
 <?php
 include 'config.php';
@@ -43,5 +44,6 @@ try{
         ?>
         </ul>
     </div>
+</main>
 </body>
 </html>

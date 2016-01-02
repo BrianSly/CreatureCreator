@@ -168,17 +168,13 @@ try {
                     <input type="radio" name="Diet" value="Obligate Carnivore">Obligate Carnivore
 
                     <li>Hunting</li>
-                    <input type="radio" name="Hunting" value="Solitary Hunter">Solitary Hunter
                     <input type="radio" name="Hunting" value="Ambush hunter">Ambush hunter
                     <input type="radio" name="Hunting" value="Cursorial hunter">Cursorial hunter
                     <input type="radio" name="Hunting" value="Opportunistic Hunter">Opportunistic Hunter
-                    <input type="radio" name="Hunting" value="Pack Hunter">Pack Hunter
 
                     <li>Socialization</li>
-                    <input type="radio" name="Social" value="Feral">Feral
                     <input type="radio" name="Social" value="Solitary Animal">Solitary Animal
                     <input type="radio" name="Social" value="Social Animal">Social Animal
-                    <input type="radio" name="Social" value="Domesticated">Domesticated
 
                     <li>Disposition</li>
                     <input type="radio" name="Disposition" value="Fearful">Fearful
