@@ -1,9 +1,17 @@
 /*! HTML5 Boilerplate v5.0 | MIT License | http://h5bp.com/ */
 
-html {
+/* ==========================================================================
+	Page Styles 
+   ========================================================================== */
+body {
     color: #222;
     font-size: 1em;
     line-height: 1.4;
+}
+
+main {
+  	margin: 20px auto;
+    max-width: 80%;  
 }
 
 ::-moz-selection {
@@ -25,14 +33,14 @@ hr {
     padding: 0;
 }
 
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
-    vertical-align: middle;
-}
+/* ==========================================================================
+   Heading
+   ========================================================================== */
+
+/* ==========================================================================
+   Form Styles
+   ========================================================================== */
+
 
 fieldset {
     border: 0;
@@ -44,21 +52,8 @@ textarea {
     resize: vertical;
 }
 
-.browserupgrade {
-    margin: 0.2em 0;
-    background: #ccc;
-    color: #000;
-    padding: 0.2em 0;
-}
-
-
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
-main {
-    margin: 20px auto;
-    max-width: 80%;
+li {
+	list-style: none;
 }
 
 textarea {
@@ -78,6 +73,8 @@ textarea {
    Media Queries
    ========================================================================== */
 
+/*ipad is 768 px wide 
+smart phones 385-415 px wide*/ 
 @media only screen and (min-width: 35em) {
 
 }

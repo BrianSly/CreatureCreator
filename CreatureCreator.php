@@ -7,9 +7,12 @@ include 'config.php';
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Creature Creator</title>
     <link rel="stylesheet" href="css/normalize.min.css">
     <link rel="stylesheet" href="css/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+    <script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
 <?php
@@ -144,7 +147,7 @@ try {
                     }
                     print '</ul></fieldset>';
                     ?>
-
+              
                     <fieldset>
                         <legend>Mobility</legend>
                         <input type="radio" name="Mobility" value="Limbless">Limbless
@@ -156,7 +159,7 @@ try {
                         <input type="radio" name="Mobility" value="Hexaped">Hexaped
                         <input type="radio" name="Mobility" value="Octaped">Octaped
                     </fieldset>
-
+           
                     <li>Diet</li>
                     <input type="radio" name="Diet" value="Obligate Herbivour">Obligate Herbivour
                     <input type="radio" name="Diet" value="Facultative Herbivore">Facultative Herbivore
@@ -200,11 +203,5 @@ try {
         </fieldset>
     </form>
 </main>
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
-
-<script src="js/main.js"></script>
 </body>
 </html>
-
