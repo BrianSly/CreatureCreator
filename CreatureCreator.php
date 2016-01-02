@@ -65,7 +65,8 @@ try{
                     if ($currentStatCategory != '') {
                         print '</select><br />';
                     }
-                    print $stat['name'] . '<br /><select name="' . $stat['name'] . '">';
+                    print '<label for="' . $stat['name'] . '">' . $stat['name'] . '</label>';
+                    print '<br /><select name="' . $stat['name'] . '">';
                     $currentStatCategory = $stat['name'];
                 }
                 print '<option value = "' . $stat['id'] . '">' . $stat['rank_name'] . ' - ' . $stat['rank'] . '</option>';
