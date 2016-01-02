@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+<main>
     <h1>Attribute Type Edit</h1>
 <?php
 include 'config.php';
@@ -45,5 +46,6 @@ try{
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 
 <script src="js/main.js"></script>
+</main>
 </body>
 </html>
