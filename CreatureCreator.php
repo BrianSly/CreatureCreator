@@ -57,8 +57,8 @@ try{
                   ON A.id = B.stat_id
                 ORDER BY name ASC, rank ASC
             ";
-            $statement = $database->query($query);
-            $results = $statement->fetchAll();
+            $stmt = $database->query($query);
+            $results = $stmt->fetchAll();
             $currentStatCategory = '';
             foreach ($results as $stat) {
                 if ($currentStatCategory != $stat['name']) {
@@ -73,7 +73,6 @@ try{
             print '</select><br />';
         ?>
 <!--        <h1>SKILL ATTRIBUTES</h1>-->
-<!--        <ul>-->
 <!--            <li>Creature Class</li>-->
 <!--            <input type="radio" name="Class" value="Bird">Bird-->
 <!--            <input type="radio" name="Class" value="Mammal">Mammal-->
@@ -85,6 +84,7 @@ try{
 <!--            <br />-->
 
             <h1>Creature Body</h1>
+            <h2>Creature Type</h2>
             <?php
             $query = "
                     SELECT
@@ -92,197 +92,96 @@ try{
                     FROM creature_type
                     ORDER BY name ASC
                 ";
-            unset($statement);
-            $statement = $database->query($query);
-            $results = $statement->fetchAll();
-            foreach($results as $order) {
-                print '<input type="radio" name="Order" value="' . $order['id'] . '">' . $order['name'] . '</input>';
+            unset($stmt);
+            $stmt = $database->query($query);
+            $results = $stmt->fetchAll();
+            foreach($results as $attribute) {
+                print '<input type="radio" name="Order" value="' . $attribute['id'] . '">' . $attribute['name'] . '</input>';
             }
             print '</select><br />';
             ?>
-<!--            <li>Appendages</li>-->
-<!--            <input type="radio" name="Appendages" value="Horn">Horn-->
-<!--            <input type="radio" name="Appendages" value="Horns">Horns-->
-<!--            <input type="radio" name="Appendages" value="Whiskers">Whiskers-->
-<!--            <input type="radio" name="Appendages" value="Antenna">Antenna-->
-<!--            <input type="radio" name="Appendages" value="Stalk">Stalk-->
-<!--            <input type="radio" name="Appendages" value="Shell">Shell-->
-<!--            <input type="radio" name="Appendages" value="Quills">Quills-->
-<!--            <br />-->
-<!--            <br />-->
-<!--            <br />-->
-<!--            <li>Mobility</li>-->
-<!--            <input type="radio" name="Mobility" value="Limbless">Limbless-->
-<!--            <input type="radio" name="Mobility" value="Legless">Legless-->
-<!--            <input type="radio" name="Mobility" value="Armless">Armless-->
-<!--            <input type="radio" name="Mobility" value="Biped">Biped-->
-<!--            <input type="radio" name="Mobility" value="Faculative  Biped">Faculative  Biped-->
-<!--            <input type="radio" name="Mobility" value="Quadraped">Quadraped-->
-<!--            <input type="radio" name="Mobility" value="Hexaped">Hexaped-->
-<!--            <input type="radio" name="Mobility" value="Octaped">Octaped-->
-<!--            <br />-->
-<!--            <br />-->
-<!--            <li>Limbs</li>-->
-<!--            <input type="radio" name="Limbs" value="Arms">Arms-->
-<!--            <input type="radio" name="Limbs" value="Legs">Legs-->
-<!--            <input type="radio" name="Limbs" value="Wings">Wings-->
-<!--            <input type="radio" name="Limbs" value="Tail">Tail-->
-<!--            <input type="radio" name="Limbs" value="Dorsal">Dorsal-->
-<!--            <input type="radio" name="Limbs" value="Flippers">Flippers-->
-<!--            <input type="radio" name="Limbs" value="Tentacles">Tentacles-->
-<!--            <br />-->
-<!--            <li>Additional Limbs</li>-->
-<!--            <input type="radio" name="Limbs2" value="Arms">Arms-->
-<!--            <input type="radio" name="Limbs2" value="Legs">Legs-->
-<!--            <input type="radio" name="Limbs2" value="Wings">Wings-->
-<!--            <input type="radio" name="Limbs2" value="Tail">Tail-->
-<!--            <input type="radio" name="Limbs2" value="Dorsal">Dorsal-->
-<!--            <input type="radio" name="Limbs2" value="Flippers">Flippers-->
-<!--            <input type="radio" name="Limbs2" value="Tentacles">Tentacles-->
-<!---->
-<!--            <br />-->
-<!--            <li>Additional Limbs</li>-->
-<!--            <input type="radio" name="Limbs3" value="Arms">Arms-->
-<!--            <input type="radio" name="Limbs3" value="Legs">Legs-->
-<!--            <input type="radio" name="Limbs3" value="Wings">Wings-->
-<!--            <input type="radio" name="Limbs3" value="Tail">Tail-->
-<!--            <input type="radio" name="Limbs3" value="Dorsal">Dorsal-->
-<!--            <input type="radio" name="Limbs3" value="Flippers">Flippers-->
-<!--            <input type="radio" name="Limbs3" value="Tentacles">Tentacles-->
-<!---->
-<!--            <br />-->
-<!--            <li>Additional Limbs</li>-->
-<!--            <input type="radio" name="Limbs4" value="Arms">Arms-->
-<!--            <input type="radio" name="Limbs4" value="Legs">Legs-->
-<!--            <input type="radio" name="Limbs4" value="Wings">Wings-->
-<!--            <input type="radio" name="Limbs4" value="Tail">Tail-->
-<!--            <input type="radio" name="Limbs4" value="Dorsal">Dorsal-->
-<!--            <input type="radio" name="Limbs4" value="Flippers">Flippers-->
-<!--            <input type="radio" name="Limbs4" value="Tentacles">Tentacles-->
-<!---->
-<!--            <br />-->
-<!--            <br />-->
-<!--            <li>Forelimbs</li>-->
-<!--            <input type="radio" name="Forelimbs" value="Hands">Hands-->
-<!--            <input type="radio" name="Forelimbs" value="Pincers">Pincers-->
-<!--            <input type="radio" name="Forelimbs" value="Hooves">Hooves-->
-<!--            <input type="radio" name="Forelimbs" value="Stinger">Stinger-->
-<!--            <input type="radio" name="Forelimbs" value="Paws">Paws-->
-<!--            <input type="radio" name="Forelimbs" value="Fins">Fins-->
-<!--            <input type="radio" name="Forelimbs" value="None">None-->
-<!--            <br />-->
-<!--            <li>Additional Forelimbs</li>-->
-<!--            <input type="radio" name="Forelimbs2" value="Hands">Hands-->
-<!--            <input type="radio" name="Forelimbs2" value="Pincers">Pincers-->
-<!--            <input type="radio" name="Forelimbs2" value="Hooves">Hooves-->
-<!--            <input type="radio" name="Forelimbs2" value="Stinger">Stinger-->
-<!--            <input type="radio" name="Forelimbs2" value="Paws">Paws-->
-<!--            <input type="radio" name="Forelimbs2" value="Fins">Fins-->
-<!--            <input type="radio" name="Forelimbs2" value="None">None-->
-<!--            <br />-->
-<!--            <li>Additional Forelimbs</li>-->
-<!--            <input type="radio" name="Forelimbs3" value="Hands">Hands-->
-<!--            <input type="radio" name="Forelimbs3" value="Pincers">Pincers-->
-<!--            <input type="radio" name="Forelimbs3" value="Hooves">Hooves-->
-<!--            <input type="radio" name="Forelimbs3" value="Stinger">Stinger-->
-<!--            <input type="radio" name="Forelimbs3" value="Paws">Paws-->
-<!--            <input type="radio" name="Forelimbs3" value="Fins">Fins-->
-<!--            <input type="radio" name="Forelimbs3" value="None">None-->
-<!--            <br />-->
-<!--            <li>Additional Forelimbs</li>-->
-<!--            <input type="radio" name="Forelimbs4" value="Hands">Hands-->
-<!--            <input type="radio" name="Forelimbs4" value="Pincers">Pincers-->
-<!--            <input type="radio" name="Forelimbs4" value="Hooves">Hooves-->
-<!--            <input type="radio" name="Forelimbs4" value="Stinger">Stinger-->
-<!--            <input type="radio" name="Forelimbs4" value="Paws">Paws-->
-<!--            <input type="radio" name="Forelimbs4" value="Fins">Fins-->
-<!--            <input type="radio" name="Forelimbs4" value="None">None-->
-<!--            <br />-->
-<!--            <br />-->
-<!--            <li>Digits</li>-->
-<!--            <input type="radio" name="Digits" value="Thumbs">Thumbs-->
-<!--            <input type="radio" name="Digits" value="Talons">Talons-->
-<!--            <input type="radio" name="Digits" value="Claws">Claws-->
-<!--            <input type="radio" name="Digits" value="Retractable Claws">Retractable Claws-->
-<!--            <input type="radio" name="Digits" value="Suction Cups">Suction Cups-->
-<!--            <br />-->
-<!--            <li>Additional Digits</li>-->
-<!--            <input type="radio" name="Digits2" value="Thumbs">Thumbs-->
-<!--            <input type="radio" name="Digits2" value="Talons">Talons-->
-<!--            <input type="radio" name="Digits2" value="Claws">Claws-->
-<!--            <input type="radio" name="Digits2" value="Retractable Claws">Retractable Claws-->
-<!--            <input type="radio" name="Digits2" value="Suction Cups">Suction Cups-->
-<!--            <br />-->
-<!--            <li>Additional Digits</li>-->
-<!--            <input type="radio" name="Digits3" value="Thumbs">Thumbs-->
-<!--            <input type="radio" name="Digits3" value="Talons">Talons-->
-<!--            <input type="radio" name="Digits3" value="Claws">Claws-->
-<!--            <input type="radio" name="Digits3" value="Retractable Claws">Retractable Claws-->
-<!--            <input type="radio" name="Digits3" value="Suction Cups">Suction Cups-->
-<!--            <br />-->
-<!--            <li>Additional Digits</li>-->
-<!--            <input type="radio" name="Digits4" value="Thumbs">Thumbs-->
-<!--            <input type="radio" name="Digits4" value="Talons">Talons-->
-<!--            <input type="radio" name="Digits4" value="Claws">Claws-->
-<!--            <input type="radio" name="Digits4" value="Retractable Claws">Retractable Claws-->
-<!--            <input type="radio" name="Digits4" value="Suction Cups">Suction Cups-->
-<!--            <br />-->
-<!--            <br />-->
-<!--            <br />-->
-<!--            <li>Diet</li>-->
-<!--            <input type="radio" name="Diet" value="Obligate Herbivour">Obligate Herbivour-->
-<!--            <input type="radio" name="Diet" value="Facultative Herbivore">Facultative Herbivore-->
-<!--            <input type="radio" name="Diet" value="Omniverous">Omniverous-->
-<!--            <input type="radio" name="Diet" value="Facultative Carnivore">Facultative Carnivore-->
-<!--            <input type="radio" name="Diet" value="Obligate Carnivore">Obligate Carnivore-->
-<!--            <li>Mouths</li>-->
-<!--            <input type="radio" name="Mouths" value="Lips">Lips-->
-<!--            <input type="radio" name="Mouths" value="Beak">Beak-->
-<!--            <input type="radio" name="Mouths" value="Trunk">Trunk-->
-<!--            <input type="radio" name="Mouths" value="Proboscis">Proboscis-->
-<!--            <input type="radio" name="Mouths" value="Mandibles">Mandibles-->
-<!--            <input type="radio" name="Mouths" value="Sponge">Sponge-->
-<!--            <input type="radio" name="Mouths" value="Jaw">Jaw-->
-<!--            <input type="radio" name="Mouths" value="Flexible Jaw">Flexible Jaw-->
-<!--            <br />-->
-<!--            <li>Specialized Teeth</li>-->
-<!--            <input type="radio" name="Teeth" value="Fangs">Fangs-->
-<!--            <input type="radio" name="Teeth" value="Incisors">Incisors-->
-<!--            <input type="radio" name="Teeth" value="Baleen">Baleen-->
-<!--            <input type="radio" name="Teeth" value="Tusks">Tusks-->
-<!--            <input type="radio" name="Teeth" value="None">None-->
-<!--            <br />-->
-<!--            <li>Hunting</li>-->
-<!--            <input type="radio" name="Hunting" value="Solitary Hunter">Solitary Hunter-->
-<!--            <input type="radio" name="Hunting" value="Ambush hunter">Ambush hunter-->
-<!--            <input type="radio" name="Hunting" value="Cursorial hunter">Cursorial hunter-->
-<!--            <input type="radio" name="Hunting" value="Opportunistic Hunter">Opportunistic Hunter-->
-<!--            <input type="radio" name="Hunting" value="Pack Hunter">Pack Hunter-->
-<!--            <br />-->
-<!--            <br />-->
-<!--            <br />-->
-<!--            <li>Socialization</li>-->
-<!--            <input type="radio" name="Social" value="Feral">Feral-->
-<!--            <input type="radio" name="Social" value="Solitary Animal">Solitary Animal-->
-<!--            <input type="radio" name="Social" value="Social Animal">Social Animal-->
-<!--            <input type="radio" name="Social" value="Domesticated">Domesticated-->
-<!--            <br />-->
-<!--            <li>Disposition</li>-->
-<!--            <input type="radio" name="Disposition" value="Fearful">Fearful-->
-<!--            <input type="radio" name="Disposition" value="Skittish">Skittish-->
-<!--            <input type="radio" name="Disposition" value="Untrusting">Untrusting-->
-<!--            <input type="radio" name="Disposition" value="Indifferent">Indifferent-->
-<!--            <input type="radio" name="Disposition" value="Bold">Bold-->
-<!--            <input type="radio" name="Disposition" value="Unfriendly">Unfriendly-->
-<!--            <input type="radio" name="Disposition" value="Hostile">Hostile-->
-<!--            <input type="radio" name="Disposition" value="Aggressive">Aggressive-->
-<!--            <br />-->
-<!--            <br />-->
+        
+            <h2>Creature Attributes</h2>
+            <?php
+            $query = "
+                SELECT
+                    creature_attribute.id,
+                    creature_attribute.name,
+                    creature_attribute_type.name as type_name
+                FROM creature_attribute
+                LEFT JOIN creature_attribute_type
+                  ON creature_attribute.creature_attribute_type_id = creature_attribute_type.id
+            ";
+            unset($stmt);
+            $stmt = $database->query($query);
+            $results = $stmt->fetchAll();
+            $currentAttributeType = '';
 
-<!--        </ul>-->
-<!--	    	<textarea cols="120" rows="25">-->
-<!--	    	-->
-<!--	    	</textarea>-->
+            foreach($results as $attribute) {
+                $isNewAttributeType = $currentAttributeType != $attribute['type_name'];
+                $isFirstAttributeType = $currentAttributeType == '';
+                $currentAttributeType = $attribute['type_name'];
+                if ($isNewAttributeType && !$isFirstAttributeType) {
+                    print "</ul>";
+                }
+                if ($isNewAttributeType) {
+                    print '<h3>' . $currentAttributeType . 's</h3>';
+                    print "<ul>";
+                }
+                print '<li>' . $attribute['name'] . '<input type="number" inputmode="numeric" name="attribute-' . $attribute['id'] . '"></li>';
+            }
+            print '</select><br />';
+            ?>
+
+            <li>Mobility</li>
+            <input type="radio" name="Mobility" value="Limbless">Limbless
+            <input type="radio" name="Mobility" value="Legless">Legless
+            <input type="radio" name="Mobility" value="Armless">Armless
+            <input type="radio" name="Mobility" value="Biped">Biped
+            <input type="radio" name="Mobility" value="Faculative Biped">Faculative Biped
+            <input type="radio" name="Mobility" value="Quadraped">Quadraped
+            <input type="radio" name="Mobility" value="Hexaped">Hexaped
+            <input type="radio" name="Mobility" value="Octaped">Octaped
+            <br />
+            <br />
+
+            <li>Diet</li>
+            <input type="radio" name="Diet" value="Obligate Herbivour">Obligate Herbivour
+            <input type="radio" name="Diet" value="Facultative Herbivore">Facultative Herbivore
+            <input type="radio" name="Diet" value="Omniverous">Omniverous
+            <input type="radio" name="Diet" value="Facultative Carnivore">Facultative Carnivore
+            <input type="radio" name="Diet" value="Obligate Carnivore">Obligate Carnivore
+
+            <li>Hunting</li>
+            <input type="radio" name="Hunting" value="Solitary Hunter">Solitary Hunter
+            <input type="radio" name="Hunting" value="Ambush hunter">Ambush hunter
+            <input type="radio" name="Hunting" value="Cursorial hunter">Cursorial hunter
+            <input type="radio" name="Hunting" value="Opportunistic Hunter">Opportunistic Hunter
+            <input type="radio" name="Hunting" value="Pack Hunter">Pack Hunter
+
+            <br />
+            <li>Socialization</li>
+            <input type="radio" name="Social" value="Feral">Feral
+            <input type="radio" name="Social" value="Solitary Animal">Solitary Animal
+            <input type="radio" name="Social" value="Social Animal">Social Animal
+            <input type="radio" name="Social" value="Domesticated">Domesticated
+            <br />
+            <li>Disposition</li>
+            <input type="radio" name="Disposition" value="Fearful">Fearful
+            <input type="radio" name="Disposition" value="Skittish">Skittish
+            <input type="radio" name="Disposition" value="Untrusting">Untrusting
+            <input type="radio" name="Disposition" value="Indifferent">Indifferent
+            <input type="radio" name="Disposition" value="Bold">Bold
+            <input type="radio" name="Disposition" value="Unfriendly">Unfriendly
+            <input type="radio" name="Disposition" value="Hostile">Hostile
+            <input type="radio" name="Disposition" value="Aggressive">Aggressive
+            <br />
+            <br />
+
+        </ul>
+	    	<textarea cols="120" rows="25">
+
+	    	</textarea>
     </fieldset>
 
 
