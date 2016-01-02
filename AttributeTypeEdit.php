@@ -29,9 +29,9 @@ try{
             SELECT name FROM creature_attribute_type
         ";
         $stmt = $database->query($query);
-        $attributes = $stmt->fetchAll(PDO::FETCH_COLUMN);
+        $attributes = $stmt->fetchAll();
         foreach ($attributes as $attribute) {
-            print "<li>" . $attribute . "</li>";
+            print "<li>" . $attribute['name'] . "</li>";
         }
         ?>
         </ul>

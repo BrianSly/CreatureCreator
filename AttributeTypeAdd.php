@@ -6,18 +6,18 @@ try{
     print 'Connection failed: ' . $e->getMessage();
 }
 
-$error = 0;
+$errorCount = 0;
 if (!isset($_POST['Name']) || strlen($_POST['Name']) < 1) {
     print "<p>Please specify a name for the attribute type</p>";
-    $error++;
+    $errorCount++;
 }
 if (strlen($_POST['Name']) > 50) {
     print "<p>The attribute type's name must be shorter than 50 characters</p>";
-    $error++;
+    $errorCount++;
 }
 
 
-if ($error == 0) {
+if ($errorCount == 0) {
     $query = "
         INSERT INTO creature_attribute_type (name)
         VALUES (:name);
