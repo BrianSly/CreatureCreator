@@ -141,7 +141,7 @@ try {
                         }
                         if ($isNewAttributeType) {
                             print "<fieldset><ul>";
-                            print '<legend>' . $currentAttributeType . 's</legend>';
+                            print '<legend>' . $currentAttributeType . '</legend>';
                         }
                         print '<li><label for="attribute-' . $attribute['id'] . '">' . $attribute['name'] . '<input type="number" inputmode="numeric" name="attribute-' . $attribute['id'] . '"></li>';
                     }
