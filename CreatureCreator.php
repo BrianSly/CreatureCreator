@@ -147,7 +147,7 @@ try {
                     }
                     print '</ul></fieldset>';
                     ?>
-              
+
                     <fieldset>
                         <legend>Mobility</legend>
                         <input type="radio" name="Mobility" value="Limbless">Limbless
@@ -159,14 +159,20 @@ try {
                         <input type="radio" name="Mobility" value="Hexaped">Hexaped
                         <input type="radio" name="Mobility" value="Octaped">Octaped
                     </fieldset>
-           
-                    <li>Diet</li>
-                    <input type="radio" name="Diet" value="Obligate Herbivour">Obligate Herbivour
-                    <input type="radio" name="Diet" value="Facultative Herbivore">Facultative Herbivore
-                    <input type="radio" name="Diet" value="Omniverous">Omniverous
-                    <input type="radio" name="Diet" value="Facultative Carnivore">Facultative Carnivore
-                    <input type="radio" name="Diet" value="Obligate Carnivore">Obligate Carnivore
 
+                    <li>Diet</li>
+
+                <?php
+                    $query = "
+                        SELECT id, name FROM creature_tier_diet
+                    ";
+                    unset($stmt);
+                    $stmt = $database->query($query);
+                    $diets = $stmt->fetchAll();
+                    foreach($diets as $dietType) {
+                        print '<input type="radio" name="Diet" value="' . $dietType['id'] . '">' . $dietType['name'] . '</input>';
+                    }
+                ?>
                     <li>Hunting</li>
                     <input type="radio" name="Hunting" value="Ambush hunter">Ambush hunter
                     <input type="radio" name="Hunting" value="Cursorial hunter">Cursorial hunter
