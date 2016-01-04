@@ -161,18 +161,17 @@ try {
                     </fieldset>
 
                     <li>Diet</li>
-
-                <?php
-                    $query = "
-                        SELECT id, name FROM creature_tier_diet
-                    ";
-                    unset($stmt);
-                    $stmt = $database->query($query);
-                    $diets = $stmt->fetchAll();
-                    foreach($diets as $dietType) {
-                        print '<input type="radio" name="Diet" value="' . $dietType['id'] . '">' . $dietType['name'] . '</input>';
-                    }
-                ?>
+                    <?php
+                        $query = "
+                            SELECT id, name FROM creature_tier_diet
+                        ";
+                        unset($stmt);
+                        $stmt = $database->query($query);
+                        $diets = $stmt->fetchAll();
+                        foreach($diets as $dietType) {
+                            print '<input type="radio" name="Diet" value="' . $dietType['id'] . '">' . $dietType['name'] . '</input>';
+                        }
+                    ?>
                     <li>Hunting</li>
                     <input type="radio" name="Hunting" value="Ambush hunter">Ambush hunter
                     <input type="radio" name="Hunting" value="Cursorial hunter">Cursorial hunter
