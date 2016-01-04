@@ -12,7 +12,7 @@ if (!isset($_POST['Name']) || strlen($_POST['Name']) < 1) {
     $errorCount++;
 }
 if (strlen($_POST['Name']) > 50) {
-    print "<p>The creatures social type's name must be shorter than 50 characters</p>";
+    print "<p>The creature social type's name must be shorter than 50 characters</p>";
     $errorCount++;
 }
 

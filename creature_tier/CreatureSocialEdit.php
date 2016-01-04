@@ -12,7 +12,7 @@
 </head>
 <body>
 <main>
-    <h1>Attribute Type Edit</h1>
+    <h1>Creature Social Type Edit</h1>
 <?php
 include '../config.php';
 try{
