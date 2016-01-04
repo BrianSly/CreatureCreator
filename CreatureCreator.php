@@ -175,19 +175,28 @@ try {
                     <li>Hunting</li>
                     <?php
                     $query = "
-                                SELECT id, name FROM creature_tier_hunting_style
-                            ";
+                        SELECT id, name FROM creature_tier_hunting_style
+                    ";
                     unset($stmt);
                     $stmt = $database->query($query);
-                    $diets = $stmt->fetchAll();
-                    foreach($diets as $dietType) {
-                        print '<input type="radio" name="Diet" value="' . $dietType['id'] . '">' . $dietType['name'] . '</input>';
+                    $huntingStyles = $stmt->fetchAll();
+                    foreach($huntingStyles as $huntingStyle) {
+                        print '<input type="radio" name="Hunting" value="' . $huntingStyle['id'] . '">' . $huntingStyle['name'] . '</input>';
                     }
                     ?>
 
                     <li>Socialization</li>
-                    <input type="radio" name="Social" value="Solitary Animal">Solitary Animal
-                    <input type="radio" name="Social" value="Social Animal">Social Animal
+                    <?php
+                    $query = "
+                        SELECT id, name FROM creature_tier_social
+                    ";
+                    unset($stmt);
+                    $stmt = $database->query($query);
+                    $socialTypes = $stmt->fetchAll();
+                    foreach($socialTypes as $socialType) {
+                        print '<input type="radio" name="Social" value="' . $socialType['id'] . '">' . $socialType['name'] . '</input>';
+                    }
+                    ?>
 
                     <li>Disposition</li>
                     <input type="radio" name="Disposition" value="Fearful">Fearful
