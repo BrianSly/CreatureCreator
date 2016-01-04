@@ -199,15 +199,17 @@ try {
                     ?>
 
                     <li>Disposition</li>
-                    <input type="radio" name="Disposition" value="Fearful">Fearful
-                    <input type="radio" name="Disposition" value="Skittish">Skittish
-                    <input type="radio" name="Disposition" value="Untrusting">Untrusting
-                    <input type="radio" name="Disposition" value="Indifferent">Indifferent
-                    <input type="radio" name="Disposition" value="Bold">Bold
-                    <input type="radio" name="Disposition" value="Unfriendly">Unfriendly
-                    <input type="radio" name="Disposition" value="Hostile">Hostile
-                    <input type="radio" name="Disposition" value="Aggressive">Aggressive
-
+                    <?php
+                    $query = "
+                            SELECT id, name FROM creature_tier_disposition
+                        ";
+                    unset($stmt);
+                    $stmt = $database->query($query);
+                    $dispositions = $stmt->fetchAll();
+                    foreach($dispositions as $disposition) {
+                        print '<input type="radio" name="Disposition" value="' . $disposition['id'] . '">' . $disposition['name'] . '</input>';
+                    }
+                    ?>
                 </fieldset>
             </fieldset>
             <fieldest>
