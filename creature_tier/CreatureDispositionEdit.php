@@ -23,7 +23,7 @@
     ?>
     <div>
         <h2>Add new creature disposition</h2>
-        <form method="post" action="CreatureSocialAdd.php">
+        <form method="post" action="CreatureDispositionAdd.php">
             <input type="text" name="Name">
             <input type="submit" value="Create">
             <input type="reset" value="Restart">
