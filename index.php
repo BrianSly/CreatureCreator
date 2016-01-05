@@ -16,8 +16,8 @@
     $pageNames = [
         "Creature Creator" => "CreatureCreator.php",
 		"Class" => "ClassEdit.php",
+		"Attribute" => "AttributeEdit.php",
         "Attribute Type" => "AttributeTypeEdit.php",
-        "Attribute" => "AttributeEdit.php",
         "Creature Diet" => "creature_tier/CreatureDietEdit.php",
         "Creature Disposition" => "creature_tier/CreatureDispositionEdit.php",
         "Creature Hunting Style" => "creature_tier/CreatureHuntingStyleEdit.php",
