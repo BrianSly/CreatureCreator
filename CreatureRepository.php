@@ -67,9 +67,9 @@ print 'Unsuccesful Connection: ' . $e->getMessage();
 <?php
 $query = "
 SELECT
-id, name, tier, type, class, diet, disposition, hunting_style, social
+name, tier, type, class, diet, disposition, hunting_style, social
 FROM creature
-order by class, name
+order by class, tier, name
 ";
 unset($stmt);
 $stmt = $database->query($query);
@@ -81,7 +81,7 @@ if($lastClass != $class) {
 print '<tr><td colspan="3" style="border: solid">' . $class . '</td></tr>';
 }
 print "<tr>";
-print "<td>" . $value['id'] . "</td>";
+
 print "<td>" . utf8_encode($value['name']) . "</td>";
 print "<td>" . $value['tier'] . "</td>";
 print "</tr>";
