@@ -15,6 +15,7 @@
     <?php
     $pageNames = [
         "Creature Creator" => "CreatureCreator.php",
+		"Creature Repository" => "CreatureRepository.php",
 		"Class" => "ClassEdit.php",
 		"Attribute" => "AttributeEdit.php",
         "Attribute Type" => "AttributeTypeEdit.php",
