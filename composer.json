@@ -1,0 +1,12 @@
+{
+  "name": "Bsly/BattleChores",
+  "description": "Productivity Manager Game",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Brian Sly",
+      "email": "Brian.H.Sly@gmail.com"
+    }
+  ]
+}
