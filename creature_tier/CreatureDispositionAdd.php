@@ -1,4 +1,6 @@
 <?php
+use BattleChores\domain\creature\CreatureDietGateway;
+
 include '../config.php';
 try{
     $database = new PDO($dsn, $user, $password);
@@ -16,16 +18,10 @@ if (strlen($_POST['Name']) > 50) {
     $errorCount++;
 }
 
-
 if ($errorCount == 0) {
-    $query = "
-        INSERT INTO creature_tier_disposition (name)
-        VALUES (:name);
-    ";
-    $stmt = $database->prepare($query);
-    $stmt->execute(array(':name' => $_POST['Name']));
-
-    if($stmt->errorInfo()[0] == "00000") {
+    $creatureDietGateway = new CreatureDietGateway($database);
+    $insertSuccess = $creatureDietGateway->insertNew($_POST['Name']);
+    if($insertSuccess) {
         print "Disposition " . $_POST['Name'] . " successfully added to the Database";
     } else {
         print "Error Adding disposition " . $_POST['Name'];

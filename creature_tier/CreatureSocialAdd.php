@@ -1,4 +1,6 @@
 <?php
+use BattleChores\domain\creature\CreatureSocialGateway;
+
 include '../config.php';
 try{
     $database = new PDO($dsn, $user, $password);
@@ -16,16 +18,10 @@ if (strlen($_POST['Name']) > 50) {
     $errorCount++;
 }
 
-
 if ($errorCount == 0) {
-    $query = "
-        INSERT INTO creature_tier_social (name)
-        VALUES (:name);
-    ";
-    $stmt = $database->prepare($query);
-    $stmt->execute(array(':name' => $_POST['Name']));
-
-    if($stmt->errorInfo()[0] == "00000") {
+    $creatureSocialGateway = new CreatureSocialGateway($database);
+    $insertSuccess = $creatureSocialGateway->insertNew($_POST['Name']);
+    if($insertSuccess) {
         print "Social type " . $_POST['Name'] . " successfully added to the Database";
     } else {
         print "Error Adding social type " . $_POST['Name'];

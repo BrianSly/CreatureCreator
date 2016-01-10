@@ -1,4 +1,6 @@
 <?php
+use BattleChores\domain\attribute\AttributeTypeGateway;
+
 include 'config.php';
 try{
     $database = new PDO($dsn, $user, $password);
@@ -16,16 +18,10 @@ if (strlen($_POST['Name']) > 50) {
     $errorCount++;
 }
 
-
 if ($errorCount == 0) {
-    $query = "
-        INSERT INTO creature_attribute_type (name)
-        VALUES (:name);
-    ";
-    $stmt = $database->prepare($query);
-    $stmt->execute(array(':name' => $_POST['Name']));
-
-    if($stmt->errorInfo()[0] == "00000") {
+    $attributeTypeGateway = new AttributeTypeGateway($database);
+    $insertSuccess = $attributeTypeGateway->insertNew($_POST['Name']);
+    if($insertSuccess) {
         print "Attribute type " . $_POST['Name'] . " successfully added to the Database";
     } else {
         print "Error Adding attribute type " . $_POST['Name'];

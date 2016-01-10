@@ -1,26 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Attribute Type Edit</title>
-    <link rel="stylesheet" href="css/normalize.min.css">
-    <link rel="stylesheet" href="css/main.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
-</head>
+<?php
+use BattleChores\domain\attribute\AttributeTypeGateway;
+
+include 'config.php';
+include 'php_classes/setup.php';
+
+$printHtml = new \BattleChores\PrintHtml();
+print $printHtml->head("Attribute Type Edit");
+?>
 <body>
 <main>
     <h1>Attribute Type Edit</h1>
-<?php
-include 'config.php';
-try{
-    $database = new PDO($dsn, $user, $password);
-} catch (PDOException $e) {
-    print 'Connection failed: ' . $e->getMessage();
-}
-?>
     <div>
         <h2>Add new attribute type</h2>
         <form method="post" action="AttributeTypeAdd.php">
@@ -33,11 +22,8 @@ try{
         <h2>List of Attribute Types</h2>
         <ul>
         <?php
-        $query = "
-            SELECT name FROM creature_attribute_type
-        ";
-        $stmt = $database->query($query);
-        $attributes = $stmt->fetchAll();
+        $attributeTypeGateway = new AttributeTypeGateway($database);
+        $attributes = $attributeTypeGateway->selectAll();
         foreach ($attributes as $attribute) {
             print "<li>" . $attribute['name'] . "</li>";
         }
