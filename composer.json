@@ -12,5 +12,8 @@
       "name": "Mark N Broadhead",
       "email": "marknbroadhead@gmail.com"
     }
-  ]
+  ],
+  "autoload": {
+    "psr-4": {"BattleChores\\": "php_classes/"}
+  }
 }
