@@ -6,7 +6,7 @@ include '../php_classes/setup.php';
 
 $printHtml = new \BattleChores\PrintHtml();
 echo $printHtml->head("Creature Diet Edit");
-try{
+try {
     $database = new PDO($dsn, $user, $password);
 } catch (PDOException $e) {
     print 'Connection failed: ' . $e->getMessage();

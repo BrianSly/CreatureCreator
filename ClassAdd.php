@@ -1,6 +1,6 @@
 <?php
 include 'config.php';
-try{
+try {
     $database = new PDO($dsn, $user, $password);
 } catch (PDOException $e) {
     print 'Connection failed: ' . $e->getMessage();
@@ -25,7 +25,7 @@ if ($errorCount == 0) {
     $stmt = $database->prepare($query);
     $stmt->execute(array(':name' => $_POST['Name']));
 
-    if($stmt->errorInfo()[0] == "00000") {
+    if ($stmt->errorInfo()[0] == "00000") {
         print "Creature Class " . $_POST['Name'] . " successfully added to the Database";
     } else {
         print "Error Adding new class " . $_POST['Name'];

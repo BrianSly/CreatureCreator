@@ -2,7 +2,7 @@
 use BattleChores\domain\creature\CreatureHuntingStyleGateway;
 
 include '../config.php';
-try{
+try {
     $database = new PDO($dsn, $user, $password);
 } catch (PDOException $e) {
     print 'Connection failed: ' . $e->getMessage();
@@ -21,7 +21,7 @@ if (strlen($_POST['Name']) > 50) {
 if ($errorCount == 0) {
     $creatureHuntingStyleGateway = new CreatureHuntingStyleGateway($database);
     $insertSuccess = $creatureHuntingStyleGateway->insertNew($_POST['Name']);
-    if($insertSuccess) {
+    if ($insertSuccess) {
         print "Hunting Style " . $_POST['Name'] . " successfully added to the Database";
     } else {
         print "Error Adding hunting style " . $_POST['Name'];

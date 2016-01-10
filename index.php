@@ -10,28 +10,27 @@
 
 </head>
 <body>
-    <h1>Creature Creator Links</h1>
-    <ul>
+<h1>Creature Creator Links</h1>
+<ul>
     <?php
     $pageNames = [
         "Creature Creator" => "CreatureCreator.php",
-		"Creature Repository" => "CreatureRepository.php",
-		"Class" => "ClassEdit.php",
-		"Attribute" => "AttributeEdit.php",
+        "Creature Repository" => "CreatureRepository.php",
+        "Class" => "ClassEdit.php",
+        "Attribute" => "AttributeEdit.php",
         "Attribute Type" => "AttributeTypeEdit.php",
         "Creature Diet" => "creature_tier/CreatureDietEdit.php",
         "Creature Disposition" => "creature_tier/CreatureDispositionEdit.php",
         "Creature Hunting Style" => "creature_tier/CreatureHuntingStyleEdit.php",
         "Creature Social" => "creature_tier/CreatureSocialEdit.php"
-		
     ];
     foreach ($pageNames as $pageName => $pageURL) {
         print '<li><a href="' . $pageURL . '">' . $pageName . '</a></li>';
     }
     ?>
-    </ul>
+</ul>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
-    <script type="text/javascript" src="js/main.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>

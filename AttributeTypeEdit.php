@@ -21,13 +21,13 @@ print $printHtml->head("Attribute Type Edit");
     <div>
         <h2>List of Attribute Types</h2>
         <ul>
-        <?php
-        $attributeTypeGateway = new AttributeTypeGateway($database);
-        $attributes = $attributeTypeGateway->selectAll();
-        foreach ($attributes as $attribute) {
-            print "<li>" . $attribute['name'] . "</li>";
-        }
-        ?>
+            <?php
+            $attributeTypeGateway = new AttributeTypeGateway($database);
+            $attributes = $attributeTypeGateway->selectAll();
+            foreach ($attributes as $attribute) {
+                print "<li>" . $attribute['name'] . "</li>";
+            }
+            ?>
         </ul>
     </div>
 </main>

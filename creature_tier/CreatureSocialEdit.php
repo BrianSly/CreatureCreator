@@ -6,8 +6,7 @@ include '../php_classes/setup.php';
 
 $printHtml = new \BattleChores\PrintHtml();
 echo $printHtml->head("Creature Social Edit");
-
-try{
+try {
     $database = new PDO($dsn, $user, $password);
 } catch (PDOException $e) {
     print 'Connection failed: ' . $e->getMessage();
@@ -27,13 +26,13 @@ try{
     <div>
         <h2>List of Creature Social Types</h2>
         <ul>
-        <?php
-        $creatureSocialGateway = new CreatureSocialGateway($database);
-        $attributes = $creatureSocialGateway->selectAll();
-        foreach ($attributes as $attribute) {
-            print "<li>" . $attribute['name'] . "</li>";
-        }
-        ?>
+            <?php
+            $creatureSocialGateway = new CreatureSocialGateway($database);
+            $attributes = $creatureSocialGateway->selectAll();
+            foreach ($attributes as $attribute) {
+                print "<li>" . $attribute['name'] . "</li>";
+            }
+            ?>
         </ul>
     </div>
 </main>

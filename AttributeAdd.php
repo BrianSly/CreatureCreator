@@ -2,7 +2,7 @@
 use BattleChores\domain\attribute\AttributeGateway;
 
 include 'config.php';
-try{
+try {
     $database = new PDO($dsn, $user, $password);
 } catch (PDOException $e) {
     print 'Connection failed: ' . $e->getMessage();
@@ -21,7 +21,7 @@ if (strlen($_POST['Name']) > 50) {
 if ($errorCount == 0) {
     $attributeGateway = new AttributeGateway($database);
     $insertSuccess = $attributeGateway->insertNew($_POST['Name'], $_POST['Type']);
-    if($insertSuccess) {
+    if ($insertSuccess) {
         print "<p>Attribute " . $_POST['Name'] . " successfully added to the Database</p>";
     } else {
         print "<p>Error Adding attribute " . $_POST['Name'] . "</p>";

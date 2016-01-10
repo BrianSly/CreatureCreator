@@ -6,7 +6,7 @@ include '../php_classes/setup.php';
 
 $printHtml = new \BattleChores\PrintHtml();
 echo $printHtml->head("Hunting Style Edit");
-try{
+try {
     $database = new PDO($dsn, $user, $password);
 } catch (PDOException $e) {
     print 'Connection failed: ' . $e->getMessage();
@@ -15,14 +15,6 @@ try{
 <body>
 <main>
     <h1>Hunting Style Edit</h1>
-    <?php
-    include '../config.php';
-    try{
-        $database = new PDO($dsn, $user, $password);
-    } catch (PDOException $e) {
-        print 'Connection failed: ' . $e->getMessage();
-    }
-    ?>
     <div>
         <h2>Add new creature hunting style</h2>
         <form method="post" action="CreatureHuntingStyleAdd.php">

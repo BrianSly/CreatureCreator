@@ -11,7 +11,7 @@ include 'config.php';
     <title>Creature Creator</title>
     <link rel="stylesheet" href="css/normalize.min.css">
     <link rel="stylesheet" href="css/main.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
@@ -20,7 +20,7 @@ try{
 	$database = new PDO($dsn, $user, $password);
 } catch (PDOException $e) {
 	print 'Unsuccesful Connection: ' . $e->getMessage();
-	
+
 }
 ?>
 
@@ -41,7 +41,7 @@ include 'config.php';
 <title>Creature Creator</title>
 <link rel="stylesheet" href="css/normalize.min.css">
 <link rel="stylesheet" href="css/main.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
