@@ -6,6 +6,11 @@ include 'php_classes/setup.php';
 
 $printHtml = new \BattleChores\PrintHtml();
 print $printHtml->head("Attribute Type Edit");
+try {
+    $database = new PDO($dsn, $user, $password);
+} catch (PDOException $e) {
+    print 'Connection failed: ' . $e->getMessage();
+}
 ?>
 <body>
 <main>
