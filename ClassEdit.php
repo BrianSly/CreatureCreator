@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="css/normalize.min.css">
     <link rel="stylesheet" href="css/main.css">
 
+    include 'config.php';
+    include 'php_classes/setup.php';
+
 </head>
 <body>
 <main>

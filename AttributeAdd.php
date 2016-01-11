@@ -1,5 +1,5 @@
 <?php
-use BattleChores\domain\attribute\AttributeGateway;
+use BattleChores\domain\creature\CreatureAttributeGateway;
 
 include 'config.php';
 try {
@@ -19,7 +19,7 @@ if (strlen($_POST['Name']) > 50) {
 }
 
 if ($errorCount == 0) {
-    $attributeGateway = new AttributeGateway($database);
+    $attributeGateway = new CreatureAttributeGateway($database);
     $insertSuccess = $attributeGateway->insertNew($_POST['Name'], $_POST['Type']);
     if ($insertSuccess) {
         print "<p>Attribute " . $_POST['Name'] . " successfully added to the Database</p>";
