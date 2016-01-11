@@ -4,7 +4,6 @@ use BattleChores\domain\creature\CreatureAttributeTypeGateway;
 
 include 'config.php';
 include 'php_classes/setup.php';
-
 try {
     $database = new PDO($dsn, $user, $password);
 } catch (PDOException $e) {
@@ -23,7 +22,7 @@ echo $printHtml->head("Attribute Type Edit");
             <Select>
                 <select name="Type">
                     <?php
-                $attributegateway = new CreatureAttributeGateway($database);
+                $attributetypegateway = new CreatureAttributeGateway($database);
                 $results = $attributetypegateway->selectAll();
                     foreach ($results as $type) {
                     print '
@@ -48,7 +47,7 @@ echo $printHtml->head("Attribute Type Edit");
             </tr>
             <?php
             $attributegateway = new CreatureAttributeGateway($database);
-            $attributes = $attributeGateway->selectAll();
+            $attributes = $attributegateway->selectAll();
             foreach ($attributes as $attribute) {
                 print "<tr>";
                 print "<td>" . $attribute['id'] . "</td>";
