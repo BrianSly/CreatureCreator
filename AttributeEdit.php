@@ -19,19 +19,15 @@ echo $printHtml->head("Attribute Type Edit");
     <div>
         <h2>Add new attribute</h2>
         <form method="post" action="AttributeAdd.php">
-            <Select>
-                <select name="Type">
-                    <?php
-                $attributetypegateway = new CreatureAttributeGateway($database);
-                $results = $attributetypegateway->selectAll();
-                    foreach ($results as $type) {
-                    print '
-                    <option value="' . $type['id'] . '">' . $type['name'] . '</option>
-                    ';
-                    }
-                    ?>
-                </select>
-            </Select><br/>
+            <select name="Type">
+                <?php
+                $creatureAttributeTypeGateway = new CreatureAttributeTypeGateway($database);
+                $results = $creatureAttributeTypeGateway->selectAll();
+                foreach ($results as $type) {
+                    print '<option value="' . $type['id'] . '">' . $type['name'] . '</option>';
+                }
+                ?>
+            </select><br />
             <input type="text" name="Name">
             <input type="submit" value="Create">
             <input type="reset" value="Restart">
