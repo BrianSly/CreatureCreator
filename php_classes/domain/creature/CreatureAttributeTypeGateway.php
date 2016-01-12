@@ -1,9 +1,9 @@
 <?php
-namespace BattleChores\domain\attribute;
+namespace BattleChores\domain\creature;
 
 use PDO;
 
-class AttributeTypeGateway
+class CreatureAttributeTypeGateway
 {
     protected $database;
 

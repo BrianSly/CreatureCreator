@@ -1,6 +1,6 @@
 <?php
-use BattleChores\domain\attribute\AttributeGateway;
-use BattleChores\domain\attribute\AttributeTypeGateway;
+use BattleChores\domain\creature\CreatureAttributeGateway;
+use BattleChores\domain\creature\CreatureAttributeTypeGateway;
 
 include 'config.php';
 include 'php_classes/setup.php';
@@ -19,15 +19,19 @@ echo $printHtml->head("Attribute Type Edit");
     <div>
         <h2>Add new attribute</h2>
         <form method="post" action="AttributeAdd.php">
-            <select name="Type">
-                <?php
-                $attributeTypeGateway = new AttributeTypeGateway($database);
-                $results = $attributeTypeGateway->selectAll();
-                foreach ($results as $type) {
-                    print '<option value= "' . $type['id'] . '">' . $type['name'] . '</option>';
-                }
-                ?>
-            </select><br/>
+            <Select>
+                <select name="Type">
+                    <?php
+                $attributetypegateway = new CreatureAttributeGateway($database);
+                $results = $attributetypegateway->selectAll();
+                    foreach ($results as $type) {
+                    print '
+                    <option value="' . $type['id'] . '">' . $type['name'] . '</option>
+                    ';
+                    }
+                    ?>
+                </select>
+            </Select><br/>
             <input type="text" name="Name">
             <input type="submit" value="Create">
             <input type="reset" value="Restart">
@@ -42,8 +46,8 @@ echo $printHtml->head("Attribute Type Edit");
                 <td>attribute type</td>
             </tr>
             <?php
-            $attributeGateway = new AttributeGateway($database);
-            $attributes = $attributeGateway->selectAll();
+            $attributegateway = new CreatureAttributeGateway($database);
+            $attributes = $attributegateway->selectAll();
             foreach ($attributes as $attribute) {
                 print "<tr>";
                 print "<td>" . $attribute['id'] . "</td>";

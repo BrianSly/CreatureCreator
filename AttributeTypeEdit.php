@@ -1,5 +1,5 @@
 <?php
-use BattleChores\domain\attribute\AttributeTypeGateway;
+use BattleChores\domain\creature\CreatureAttributeTypeGateway;
 
 include 'config.php';
 include 'php_classes/setup.php';
@@ -27,7 +27,7 @@ try {
         <h2>List of Attribute Types</h2>
         <ul>
             <?php
-            $attributeTypeGateway = new AttributeTypeGateway($database);
+            $attributeTypeGateway = new CreatureAttributeTypeGateway($database);
             $attributes = $attributeTypeGateway->selectAll();
             foreach ($attributes as $attribute) {
                 print "<li>" . $attribute['name'] . "</li>";
