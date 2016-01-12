@@ -4,6 +4,7 @@ use BattleChores\domain\creature\CreatureAttributeTypeGateway;
 
 include 'config.php';
 include 'php_classes/setup.php';
+
 try {
     $database = new PDO($dsn, $user, $password);
 } catch (PDOException $e) {
